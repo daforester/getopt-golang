@@ -3,7 +3,7 @@ package getopt
 import (
 	"errors"
 	"fmt"
-	"lwebco.de/cosmic-calendar-go-library/examples/libs/getopt/localization"
+	"github.com/daforester/getopt-golang/getopt/localization"
 	"strings"
 )
 
