@@ -175,12 +175,13 @@ func (o *Option) GetArgument() *Argument {
 }
 
 func (o *Option) SetValue(value ...string) (*Option, error) {
-	if value == nil {
+	if value == nil || len(value) == 0 {
+
 		if o.mode == REQUIRED_ARGUMENT || o.mode == MULTIPLE_ARGUMENT {
 			return nil, errors.New(fmt.Sprintf(Translate("option-argument-missing"), o.GetName()))
 		}
 
-		if o.argument.GetValue() != nil {
+		if o.argument.GetValue() != nil && len(o.argument.GetValue()) > 0 {
 			if len(o.argument.GetValue()) > 0 {
 				i, err := strconv.Atoi(o.argument.GetValue()[0])
 				if err != nil {

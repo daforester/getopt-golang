@@ -125,15 +125,20 @@ func (g *GetOpt) Process(args ...string) error {
 		}
 
 		if option.GetMode() != NO_ARGUMENT {
-			_, err := option.SetValue(getValue())
-			if err != nil {
-				return err
+			value := getValue()
+			if len(value) > 0 {
+				_, err := option.SetValue(value)
+				if err != nil {
+					return err
+				}
+
+				return nil
 			}
-		} else {
-			_, err := option.SetValue()
-			if err != nil {
-				return err
-			}
+		}
+
+		_, err := option.SetValue()
+		if err != nil {
+			return err
 		}
 
 		return nil

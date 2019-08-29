@@ -34,8 +34,6 @@ func NewArgument(defaultValue *string, callable *validationFunc, nameArg *string
 		a.name = "arg"
 	}
 
-	a.value = make([]string, 0)
-
 	return a
 }
 
@@ -101,9 +99,11 @@ func (a *Argument) SetValue(value ...string) (*Argument, error) {
 }
 
 func (a *Argument) GetValue() []string {
+	/*
 	if (a.value == nil || len(a.value) == 0) && a.IsMultiple() {
 		return []string{}
 	}
+ 	*/
 
 	return a.value
 }
