@@ -8,7 +8,7 @@ var LangFR = map[string]string{
 	"operands-title": "Arguments:\n",
 	"options-title": "Options:\n",
 	"commands-title": "Commandes:\n",
-	"option-unknown": "Option \"%s\" inconnue",
+	"option-unknown": "Option '%s' inconnue",
 	"no-more-operands": "Argument inattendu - %s",
 	"operand-missing": "L'argument %s est obligatoire",
 	"option-argument-missing": "L'option '%s' doit avoir une valeur",
@@ -17,4 +17,3 @@ var LangFR = map[string]string{
 	"operand": "Operand",
 	"argument": "Argument",
 }
-

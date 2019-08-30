@@ -8,7 +8,7 @@ var LangDE = map[string]string{
 	"operands-title": "Operanden:\n",
 	"options-title": "Optionen:\n",
 	"commands-title": "Befehl:\n",
-	"option-unknown": "Unbekannte Option \"%s\" ist unknown",
+	"option-unknown": "Unbekannte Option '%s' ist unknown",
 	"no-more-operands": "Unerwarteter Operand %s",
 	"operand-missing": "Operand %s muss angegeben werden",
 	"option-argument-missing": "Option '%s' erwartet einen Wert",
@@ -17,5 +17,3 @@ var LangDE = map[string]string{
 	"operand": "Operand",
 	"argument": "Argument",
 }
-
-
