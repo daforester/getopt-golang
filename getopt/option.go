@@ -1,7 +1,7 @@
 package getopt
 
 import (
-	"errors"
+	"github.com/daforester/getopt-golang/getopt/errors"
 	"fmt"
 	"os"
 	"regexp"
@@ -130,10 +130,10 @@ func (o *Option) Short() rune {
 
 func (o *Option) SetLong(long string) (*Option, error) {
 	if long != "" {
-		match, _ := regexp.MatchString("^[a-zA-Z0-9?!§$%#]{1,}$", string(long))
+		match, _ := regexp.MatchString("^[a-zA-Z0-9][a-zA-Z0-9_-]{1,}$", string(long))
 
 		if !match {
-			return nil, errors.New(fmt.Sprintf("Long option must be null or one of [a-zA-Z0-9?!§$%%#], found '%s'", long))
+			return nil, errors.New(fmt.Sprintf("Long option must be null or alphanumeric string, found '%s'", long))
 		} else {
 			o.long = long
 		}

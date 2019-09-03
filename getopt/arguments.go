@@ -89,7 +89,7 @@ func (a *Arguments) isMeta(arg string) bool {
 }
 
 func (a *Arguments) isLongOption(arg string) bool {
-	return a.isOption(arg) && arg[1] == '-'
+	return a.isOption(arg) && len(arg) > 1 && arg[1] == '-'
 }
 
 func (a *Arguments) longName(arg string) string {

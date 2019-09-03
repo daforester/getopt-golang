@@ -1,8 +1,8 @@
 package getopt
 
 import (
-	"errors"
 	"fmt"
+	"github.com/daforester/getopt-golang/getopt/errors"
 	"log"
 	"os"
 	"strconv"
@@ -100,7 +100,7 @@ func (g *GetOpt) Process(args ...string) error {
 		option := g.GetOption(name)
 
 		if option == nil {
-			if g.Get(SETTING_STRICT_OPTIONS) != "" {
+			if g.Get(SETTING_STRICT_OPTIONS) == "" {
 				value := getValue()
 				if len(value) == 0 {
 					value = "1"
@@ -121,7 +121,7 @@ func (g *GetOpt) Process(args ...string) error {
 				return nil
 			}
 
-			return errors.New(fmt.Sprintf(Translate("option-unknown"), name))
+			return errors.NewUnexpected(fmt.Sprintf(Translate("option-unknown"), name))
 		}
 
 		if option.GetMode() != NO_ARGUMENT {

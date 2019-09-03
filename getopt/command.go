@@ -1,7 +1,7 @@
 package getopt
 
 import (
-	"errors"
+	"github.com/daforester/getopt-golang/getopt/errors"
 	"fmt"
 	"strings"
 )
