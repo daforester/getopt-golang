@@ -94,7 +94,7 @@ func (a *Arguments) isLongOption(arg string) bool {
 
 func (a *Arguments) longName(arg string) string {
 	name := arg[2:]
-	p := strings.IndexRune(name, '-')
+	p := strings.IndexRune(name, '=')
 
 	if p > 0 {
 		return name[0:p]
