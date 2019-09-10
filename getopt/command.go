@@ -29,13 +29,12 @@ type Command struct {
 	handler handlerFunc
 }
 
-func NewCommand(name string, handler handlerFunc, options []*Option) (*Command, error) {
+func NewCommand(name string, handler handlerFunc, options ...*Option) (*Command, error) {
 	c := new(Command)
-
-	return c.Build(name, handler, options)
+	return c.Build(name, handler, options...)
 }
 
-func (c *Command) Build(name string, handler handlerFunc, options []*Option) (*Command, error) {
+func (c *Command) Build(name string, handler handlerFunc, options ...*Option) (*Command, error) {
 	c.options = make([]*Option, 0)
 	c.optionMapping = make(map[string]*Option)
 	c.operands = make([]*Operand, 0)

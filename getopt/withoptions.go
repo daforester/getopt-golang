@@ -33,16 +33,22 @@ func (w *WithOptions) AddOptionArray(s []string) (*WithOptions, error) {
 }
 
 func (w *WithOptions) AddOptions(options []*Option) (*WithOptions, error) {
+	var err error
+
 	if len(options) > 0 {
 		for _, option := range options {
-			_, err := w.AddOption(option)
-			if err != nil {
-				return nil, err
+			if option != nil {
+				_, err := w.AddOption(option)
+				if err != nil {
+					return nil, err
+				}
+			} else {
+				err = errors.New("Nil option provided to AddOptions")
 			}
 		}
 	}
 
-	return w, nil
+	return w, err
 }
 
 func (w *WithOptions) AddOption(option *Option) (*WithOptions, error) {
