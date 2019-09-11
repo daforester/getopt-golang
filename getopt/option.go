@@ -19,7 +19,7 @@ type Option struct {
 	argument *Argument
 }
 
-func NewOption(short rune, long string, mode string) (*Option, error) {
+func NewOption(short rune, long string, mode string, description ...string) (*Option, error) {
 	o := new(Option)
 	if short == '\x00' && (long == "" || len(long) == 0) {
 		return nil, errors.New("The short and long name may not both be empty")
@@ -52,6 +52,12 @@ func NewOption(short rune, long string, mode string) (*Option, error) {
 	o.argument = NewArgument(nil, nil, nil)
 	o.argument.Multiple(o.mode == MULTIPLE_ARGUMENT)
 	o.argument.SetOption(o)
+
+	if description != nil && len(description) > 0 {
+		if description[0] != nil {
+			o.SetDescription(description[0])
+		}
+	}
 
 	return o, nil
 }
