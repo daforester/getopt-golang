@@ -145,13 +145,13 @@ func (g *GetOpt) Process(args ...string) error {
 	}
 
 	setCommand := func(command CommandInterface) error {
-		_, err := g.AddOptions(command.GetOptions())
+		_, err := g.AddOptions(command.GetOptions()...)
 
 		if err != nil {
 			return err
 		}
 
-		_, err = g.AddOperands(command.GetOperands())
+		_, err = g.AddOperands(command.GetOperands()...)
 
 		if err != nil {
 			return err
@@ -247,11 +247,15 @@ func (g *GetOpt) GetOptions() map[string][]string {
 	return result
 }
 
-func (g *GetOpt) AddCommands(commands []CommandInterface) (*GetOpt, error) {
-	for _, command := range commands {
-		_, err := g.AddCommand(command)
-		if err != nil {
-			return nil, err
+func (g *GetOpt) AddCommands(commands ...CommandInterface) (*GetOpt, error) {
+	if commands != nil && len(commands) > 0 {
+		for _, command := range commands {
+			if command != nil {
+				_, err := g.AddCommand(command)
+				if err != nil {
+					return nil, err
+				}
+			}
 		}
 	}
 

@@ -54,9 +54,7 @@ func NewOption(short rune, long string, mode string, description ...string) (*Op
 	o.argument.SetOption(o)
 
 	if description != nil && len(description) > 0 {
-		if description[0] != nil {
-			o.SetDescription(description[0])
-		}
+		o.SetDescription(description[0])
 	}
 
 	return o, nil

@@ -48,7 +48,7 @@ func (c *Command) Build(name string, handler handlerFunc, options ...*Option) (*
 	c.handler = handler
 
 	if len(options) > 0 {
-		_, err = c.AddOptions(options)
+		_, err = c.AddOptions(options...)
 
 		if err != nil {
 			return nil, err

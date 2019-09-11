@@ -9,11 +9,15 @@ type WithOperands struct {
 	operands []*Operand
 }
 
-func (w *WithOperands) AddOperands(operands []*Operand) (*WithOperands, error) {
-	for _, o := range operands {
-		_, err := w.AddOperand(o)
-		if err != nil {
-			return nil, err
+func (w *WithOperands) AddOperands(operands ...*Operand) (*WithOperands, error) {
+	if operands != nil && len(operands) > 0 {
+		for _, o := range operands {
+			if o != nil {
+				_, err := w.AddOperand(o)
+				if err != nil {
+					return nil, err
+				}
+			}
 		}
 	}
 

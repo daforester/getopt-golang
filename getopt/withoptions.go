@@ -18,7 +18,7 @@ func (w *WithOptions) AddOptionString(option string) (*WithOptions, error) {
 		return nil, err
 	}
 
-	return w.AddOptions(options)
+	return w.AddOptions(options...)
 }
 
 func (w *WithOptions) AddOptionArray(s []string) (*WithOptions, error) {
@@ -32,7 +32,7 @@ func (w *WithOptions) AddOptionArray(s []string) (*WithOptions, error) {
 	return w.AddOption(option)
 }
 
-func (w *WithOptions) AddOptions(options []*Option) (*WithOptions, error) {
+func (w *WithOptions) AddOptions(options ...*Option) (*WithOptions, error) {
 	var err error
 
 	if len(options) > 0 {
