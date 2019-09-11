@@ -190,15 +190,24 @@ func (o *Option) SetValue(value ...string) (*Option, error) {
 				i, err := strconv.Atoi(o.argument.GetValue()[0])
 				if err != nil {
 					value = append(value, strconv.Itoa(i + 1))
-					o.argument.SetValue(value...)
+					_, err := o.argument.SetValue(value...)
+					if err != nil {
+						return nil, err
+					}
 				} else {
 					return nil, errors.New(fmt.Sprintf("Unable to convert string to number: %s", o.argument.GetValue()[0]))
 				}
 			} else {
-				o.argument.SetValue("1")
+				_, err := o.argument.SetValue("1")
+				if err != nil {
+					return nil, err
+				}
 			}
 		} else {
-			o.argument.SetValue("1")
+			_, err := o.argument.SetValue("1")
+			if err != nil {
+				return nil, err
+			}
 		}
 	} else {
 		_, err := o.argument.SetValue(value...)
