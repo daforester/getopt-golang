@@ -105,7 +105,7 @@ func (o *Option) SetShort(short rune) (*Option, error) {
 		match, _ := regexp.MatchString("^[a-zA-Z0-9?!§$%#]$", string(short))
 
 		if !match {
-			return nil, errors.New(fmt.Sprintf("Short option must be null or one of [a-zA-Z0-9?!§$%#], found '%s'", string(short)))
+			return nil, errors.New(fmt.Sprintf("Short option must be null or one of [a-zA-Z0-9?!§$%%#], found '%s'", string(short)))
 		} else {
 			o.short = short
 		}
