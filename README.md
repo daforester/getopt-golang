@@ -4,7 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/daforester/getopt-golang/badge.svg?branch=master)](https://coveralls.io/github/daforester/getopt-php?branch=master)
 
 
-GetOpt.PHP is a library for command-line argument processing. It supports PHP version 5.4 and above.
+getopt-golang is a library for command-line argument processing. It is a conversion of GetOpt.PHP.
+
+https://github.com/getopt-php/getopt-php
 
 ## Features
 
