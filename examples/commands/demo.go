@@ -4,13 +4,11 @@ import (
 	"errors"
 	"fmt"
 	"github.com/daforester/getopt-golang/getopt"
-	"lwebco.de/cosmic-calendar-go-library/examples/libs/commands/traits"
 	"time"
 )
 
 type Demo struct {
 	getopt.Command
-	traits.Configurable
 }
 
 func NewDemo() (*Demo, error) {
